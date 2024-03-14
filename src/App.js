@@ -4,6 +4,7 @@ import { auth } from './firebase';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import UserArea from './components/UserArea';
+import GalleryPage from './components/GalleryPage';
 import Home from './components/Home';
 import AdminDashboard from './components/AdminDashboard'; // Importe o componente AdminDashboard
 import BudgetPage from './components/BudgetPage'; // Importe o componente BudgetPage
@@ -40,6 +41,7 @@ function App() {
           <Route path="/register" element={<RegisterForm onRegister={handleRegister} />} />
           <Route path="/user" element={<UserArea user={currentUser} />} />
           <Route path="/" element={<Home currentUser={currentUser} />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/admindashboard" element={<AdminDashboard />} /> {/* Adicione esta rota para o AdminDashboard */}
           <Route path="/budget" element={<BudgetPage currentUser={currentUser} />} /> {/* Adicione esta rota para o BudgetPage */}
         </Routes>
