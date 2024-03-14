@@ -1,0 +1,316 @@
+/* Estilos para desktop */
+.home-container {
+    flex-direction: column;
+    background-color: #E5C4AA; /* Define a cor de fundo da página home.js */
+  }
+  
+  body {
+    background-color: #E5C4AA;
+  }
+  
+  .user-header {
+    margin: -39px 48% 14px 0;
+  }
+  
+  .logout-button {
+    color: #3E2918;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 20px; /* Adiciona espaço entre o texto e o botão */
+    margin: 53px 13% 0 0;
+  }
+  
+  .login-register-links {
+    margin: 0 42% 0 0;
+  }
+  
+  .user-info {
+    margin: 0 0 0 42%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 800px;
+    margin-top: -68px;
+    margin-left: calc(100% - 800px); /* Ajusta a margem esquerda para alinhar com o máximo de largura */
+  }
+
+  
+  
+  .user-header {
+    margin-bottom: -53px;
+    display: flex;
+    align-items: center;
+    margin-right: 34%;
+  }
+  
+  .ver-mais-button {
+    background-color: #A16345;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 81% 55.4rem 0 0;
+
+  }
+  
+  .ver-mais-button:hover {
+    background-color: #874e36;
+  }
+  
+  .image-container {
+    margin-top: 20px;
+    width: 45%;
+  }
+
+  .img1 {
+    margin: 64px 0 0 62%;
+  }
+  
+  .second-image {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    width: 100%;
+    /* margin: 0 0 0 24%; */
+    /* padding: 20% 0 0 0; */
+  }
+  
+  .second-image img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    margin: 0 0 0 24%;
+    padding: 15% 0 0 0;
+
+  }
+  
+  .second-image div {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    /* text-align: center; */
+  }
+  
+  .second-image h2 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+  
+  .second-image p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: #A16345;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    font-size: 12px;
+    color: #3E2918;
+  }
+  
+  .user-points {
+    font-size: 12px;
+    font-weight: bold;
+    color: #3E2918;
+  }
+  
+  .menu-toggle {
+    display: none; /* Oculta o botão de menu em dispositivos maiores */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center; /* Centralizar os links */
+    list-style: none;
+    padding: 0;
+    margin: 0 8% -52px 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    font-family: 'Open Sans Semibold', sans-serif; /* Define a fonte para Open Sans Semibold */
+    color: #3E2918; /* Define a cor do texto */
+    padding: 44px;
+    font-weight: 500;
+  }
+  
+  /* Estilos para dispositivos móveis */
+  @media screen and (max-width: 768px) {
+    .home-container {
+      padding-left: 15px; /* Adicionado espaço à esquerda */
+      padding-right: 15px; /* Adicionado espaço à direita */
+    }
+
+    .login-register-links {
+        margin: 10px 30% 0 0;
+    }
+
+    .ver-mais-button {
+        background-color: #A16345;
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 91rem 66% 0 0;
+      }
+      
+      .ver-mais-button:hover {
+        background-color: #874e36;
+      }
+
+    .second-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      
+      .second-image img {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+        margin: 0 5px 0 0;
+        padding: 80px 0 0 0;
+      }
+      
+      .second-image div {
+        width: 100%;
+        max-width: 600px;
+        padding: 0 20px;
+        text-align: center;
+      }
+      
+      .second-image h2 {
+        font-size: 24px;
+        margin-top: 0;
+
+      }
+      
+      .second-image p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    
+
+    .img1 {
+        padding: 25% 0 22% 0;
+        margin: 64px 0 0px 0;
+     }
+
+    .image-container {
+        margin-top: 20px;
+        width: 100%;
+        margin-top: 40%;
+        margin: 0 0 0 0;
+
+      }
+  
+    .logout-button {
+      color: #3E2918;
+      background-color: #E5C4AA;
+      margin: 37px 2px -5px 0;
+    }
+  
+    .user-header {
+      color: #3E2918;
+      margin: 0 -22px -52px 0;
+    }
+  
+    .user-name {
+      color: #3E2918;
+    }
+  
+    .user-info {
+      justify-content: right;
+      margin: -8px -22px 17px -8px;
+    }
+  
+    .menu-toggle {
+      display: flex; /* Exibe o botão de menu em dispositivos menores */
+      position: absolute; /* Posicionamento absoluto */
+      left: 15px; /* Alinhamento à esquerda */
+      background-color: transparent;
+      margin: 0 84% 0 0%;
+      color: #333;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 999; /* Coloca o botão na frente de outros elementos */
+    }
+  
+    .navbar {
+      display: none; /* Oculta o menu inicialmente em dispositivos menores */
+      flex-direction: column;
+      position: absolute; /* Posicionamento absoluto */
+      left: 0;
+      top: 60px;
+      width: 100%;
+      background-color: #A16345;
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 10px 0;
+      z-index: 998; /* Coloca o menu atrás do botão de menu */
+    }
+  
+    .navbar.open {
+      display: flex;
+      margin: 20px 0 0 0;
+    }
+  
+    .navbar a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 10px;
+    }
+  
+    /* Estilo para fechar o menu */
+    .close-menu {
+      align-self: flex-end; /* Alinha ao final */
+      margin-top: 10px;
+      margin-right: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .close-menu:hover {
+      background-color: #555;
+    }
+  
+    .second-image img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .second-image div {
+      max-width: 100%;
+      padding: 0 10px;
+      text-align: left;
+    }
+  }
+  
+  /* Exibir o menu normalmente em telas maiores */
+  @media screen and (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+  }
+  

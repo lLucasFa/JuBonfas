@@ -1,0 +1,67 @@
+.back-button-register{
+    background-color: #A16345;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem 4rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    margin: 36% 45% 0 0;
+}
+
+.register-button-regi {
+    background-color: #3E2918;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 37.5rem 47% 0 0;
+}
+
+.button-ver {
+    color: rgb(255, 255, 255);
+    background-color: #3E2918;
+    margin: 24.38rem 45% 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .home-container {
+      padding-left: 15px; /* Adicionado espaço à esquerda */
+      padding-right: 15px; /* Adicionado espaço à direita */
+    }
+
+    .back-button-register{
+        background-color: #A16345;
+        color: #ffffff;
+        border: none;
+        border-radius: 0.375rem;
+        padding: 0.75rem 4rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 1rem;
+        margin: 32rem 28% 0 0;
+    }
+    
+    .register-button-regi {
+        background-color: #3E2918;
+        color: #ffffff;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        padding: 0.75rem 1rem;
+        border: none;
+        cursor: pointer;
+        margin: 28.2rem 38% 0 0;
+    }
+    
+    .button-ver {
+        color: rgb(255, 255, 255);
+        background-color: #3E2918;
+        margin: 15.37rem 14% 0 0;
+    }
+
+  }

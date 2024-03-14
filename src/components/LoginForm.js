@@ -1,10 +1,13 @@
+// LoginForm.js
+
 import React, { useState } from 'react';
-import { auth, firestore } from '../firebase';
+import { auth } from '../firebase';
+import './LoginForm.css'; // Importa o arquivo de estilos CSS
 
 const LoginForm = ({ onRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState(null); // Adicione um estado para armazenar a mensagem de erro
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -12,10 +15,8 @@ const LoginForm = ({ onRegister }) => {
       await auth.signInWithEmailAndPassword(email, password);
       const user = auth.currentUser;
       if (user && user.email === 'jubonfas@tattoo.com') {
-        // Redirecionar para a página AdminDashboard se o usuário for um administrador
         window.location.href = '/admindashboard';
       } else {
-        // Redirecionar para a página Home se o usuário não for um administrador
         window.location.href = '/';
       }
     } catch (error) {
@@ -41,31 +42,53 @@ const LoginForm = ({ onRegister }) => {
   };
 
   const handleGoToHome = () => {
-    window.location.href = '/'; // Redireciona para a página inicial (Home)
+    window.location.href = '/';
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
+    <div className="form-container">
+      <form onSubmit={handleLogin} className="form-wrapper">
+        <div className="input-field">
+          <label className="input-label" htmlFor="email">
+            Email
+          </label>
+          <input
+            className="input"
+            id="email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-field">
+          <label className="input-label" htmlFor="password">
+            Password
+          </label>
+          <button className="forgot-password" onClick={handleForgotPassword}>
+            Esqueceu a Senha?
+          </button>
+          <input
+            className="input"
+            id="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button className="login-button" type="submit">
+            Sign In
+          </button>
+        <div className="button-container">
+        </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <button className="back-button" onClick={handleGoToHome}>
+          Voltar para a Home
+        </button>
       </form>
-      {errorMessage && <p>{errorMessage}</p>} {/* Exibe a mensagem de erro abaixo do botão de login */}
-      <button onClick={() => window.location.href = '/'}>Voltar</button> {/* Botão para voltar para a Home */}
-      <p><a href="#" onClick={handleForgotPassword}>Esqueceu sua senha?</a></p> {/* Adiciona um link para redefinir a senha */}
     </div>
   );
 };

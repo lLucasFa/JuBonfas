@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { auth, firestore } from '../firebase';
 import { Link } from 'react-router-dom';
+import './Home.css'; // Importe o arquivo de estilos CSS
+import { FaSignOutAlt } from 'react-icons/fa'; // Importe o ícone de saída
+import { IoPersonCircleOutline } from 'react-icons/io5'; // Importe o ícone de usuário
+import image1 from '../img/image2.png'; // Importe a primeira imagem
+import image2 from '../img/ju.png'; // Importe a segunda imagem
 
 const Home = ({ currentUser }) => {
   const [userName, setUserName] = useState('');
   const [userPoints, setUserPoints] = useState(0);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar a abertura e fechamento do menu
 
   useEffect(() => {
     if (currentUser) {
@@ -36,21 +42,83 @@ const Home = ({ currentUser }) => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div>
-      {currentUser ? (
-        <div>
-          <h2>Bem-vindo, {userName}!</h2>
-          <p>Você possui {userPoints} pontos.</p>
-          <button onClick={handleLogout}>Logout</button>
-          {isAdmin && <Link to="/admindashboard">Dashboard</Link>}
+      <div className="home-container">
+        {/* Menu navbar */}
+        <nav className={`navbar ${isMenuOpen ? 'open' : ''}`}>
+          <Link to="/" onClick={closeMenu}>HOME</Link>
+          <Link to="/orcamento" onClick={closeMenu}>ORÇAMENTO</Link>
+          <Link to="/gallery" onClick={closeMenu}>GALERIA</Link>
+          <Link to="/cuidados" onClick={closeMenu}>CUIDADOS</Link>
+          <Link to="/sobre" onClick={closeMenu}>SOBRE</Link>
+          <Link to="/perguntas" onClick={closeMenu}>PERGUNTAS</Link>
+          {/* Botão de fechar o menu */}
+          {isMenuOpen && (
+            <button onClick={closeMenu} className="close-menu">Fechar</button>
+          )}
+        </nav>
+
+        {/* User Info */}
+        <div className="user-info">
+          {currentUser ? (
+            <div className="user-header">
+              <IoPersonCircleOutline className="avatar" />
+              <div>
+                <p className="user-name">{userName}</p>
+                <p className="user-points">{userPoints} Pontos</p>
+              </div>
+            </div>
+          ) : (
+            <div className="login-register-links">
+              <Link to="/login">Login/ </Link>
+              <Link to="/register">Register</Link>
+            </div>
+          )}
+          {/* Botão de logout */}
+          {currentUser && (
+            <button onClick={handleLogout} className="logout-button">
+              <FaSignOutAlt />
+            </button>
+          )}
         </div>
-      ) : (
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+
+        {/* Exibição das imagens */}
+        <div className="image-container">
+          <img className='img1' src={image1} alt="Imagem 1" />
         </div>
-      )}
+        <div className="image-container second-image">
+          <img src={image2} alt="Imagem 2" />
+          <div>
+            <h2>Minha história:</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat
+            </p>
+            <Link to="/sobre">
+              <button className="ver-mais-button">Ver Mais</button>
+            </Link>
+          </div>
+        </div>
+
+
+        {/* Botão de toggle para abrir e fechar o menu */}
+        <button onClick={toggleMenu} className="menu-toggle">
+          ☰
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { auth, firestore } from '../firebase';
+import './RegisterForm.css'; // Importa o arquivo de estilos CSS
 
 const RegisterForm = () => {
   const [email, setEmail] = useState('');
@@ -67,23 +68,22 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+    <div className="form-container">
+      <form onSubmit={handleRegister} className="form-wrapper">
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <div style={{ position: 'relative' }}>
+        <div className="input-field">
           <input type={showPassword ? "text" : "password"} placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <button type="button" onClick={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }}>
+          <button className='button-ver' type="button" onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? "Ocultar" : "Ver"}
           </button>
         </div>
         <input type="text" placeholder="Nome Completo" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-        <input type="text" placeholder="(XX) XXXXX-XXXX" value={formatPhoneNumber(phoneNumber)} onChange={(e) => setPhoneNumber(e.target.value)} required /> {/* Formato do telefone */}
+        <input type="text" placeholder="(XX) XXXXX-XXXX" value={formatPhoneNumber(phoneNumber)} onChange={(e) => setPhoneNumber(e.target.value)} required />
         <input type="text" placeholder="@usuário" value={instagram} onChange={(e) => setInstagram(e.target.value)} required />
-        <button type="submit">Register</button>
+        <button type="submit" className="register-button-regi">Register</button>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
-      {errorMessage && <p>{errorMessage}</p>} {/* Exibe a mensagem de erro */}
-      <button onClick={() => window.location.href = '/'}>Voltar</button> {/* Botão para voltar para a Home */}
+      <button onClick={() => window.location.href = '/'} className="back-button-register">Voltar</button>
     </div>
   );
 };
