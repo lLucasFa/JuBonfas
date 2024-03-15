@@ -11,6 +11,10 @@
   .user-header {
     margin: -39px 48% 14px 0;
   }
+
+  .admin-dashboard-button{
+    color: pink;
+  }
   
   .logout-button {
     color: #3E2918;

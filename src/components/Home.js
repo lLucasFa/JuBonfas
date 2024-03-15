@@ -61,7 +61,9 @@ const Home = ({ currentUser }) => {
           <Link to="/cuidados" onClick={closeMenu}>CUIDADOS</Link>
           <Link to="/sobre" onClick={closeMenu}>SOBRE</Link>
           <Link to="/perguntas" onClick={closeMenu}>PERGUNTAS</Link>
-          {/* Botão de fechar o menu */}
+          {currentUser && currentUser.email === 'jubonfas@tattoo.com' && (
+            <Link to="/admindashboard" className="admin-dashboard-button">Admin Dashboard</Link>
+          )}          
           {isMenuOpen && (
             <button onClick={closeMenu} className="close-menu">Fechar</button>
           )}
@@ -90,7 +92,6 @@ const Home = ({ currentUser }) => {
             </button>
           )}
         </div>
-
         {/* Exibição das imagens */}
         <div className="image-container">
           <img className='img1' src={image1} alt="Imagem 1" />
@@ -109,8 +110,6 @@ const Home = ({ currentUser }) => {
             </p>
           </div>
         </div>
-
-
         {/* Botão de toggle para abrir e fechar o menu */}
         <button onClick={toggleMenu} className="menu-toggle">
           ☰

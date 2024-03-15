@@ -5,17 +5,13 @@ import './AdminDashboard.css'; // Importe o arquivo CSS
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [budgets, setBudgets] = useState([]);
-
+  const [manualPoints, setManualPoints] = useState(0); // Adiciona estado para armazenar os pontos manualmente inseridos
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const querySnapshot = await firestore.collection('users').get();
-        const userList = [];
-        querySnapshot.forEach((doc) => {
-          userList.push({ id: doc.id, ...doc.data() });
-        });
+        const userList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setUsers(userList);
       } catch (error) {
         console.error('Error getting users:', error);
@@ -24,7 +20,6 @@ const AdminDashboard = () => {
 
     fetchUsers();
 
-    // Verificar se o usuário atual é o usuário permitido
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
@@ -32,62 +27,25 @@ const AdminDashboard = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleAddPoints = async (userId) => {
+  const handlePointsAction = async (userId, action, points = null) => {
     try {
       if (currentUser && currentUser.email === 'jubonfas@tattoo.com') {
         const userRef = firestore.collection('users').doc(userId);
         const userDoc = await userRef.get();
         if (userDoc.exists) {
-          const { points } = userDoc.data();
-          await userRef.update({ points: points + 1 }); // Adiciona 1 ponto
-          const updatedUsers = users.map((user) => {
-            if (user.id === userId) {
-              return { ...user, points: points + 1 }; // Atualiza o valor do usuário com 1 ponto adicionado
-            }
-            return user;
-          });
-          setUsers(updatedUsers);
-        }
-      } else {
-        console.log('Acesso negado. Você não tem permissão para executar esta ação.');
-      }
-    } catch (error) {
-      console.error('Error adding points:', error);
-    }
-  };
-
-  // Função para permitir a edição manual do campo de pontos
-  const handleEditPoints = async (userId, newPoints) => {
-    try {
-      if (currentUser && currentUser.email === 'jubonfas@tattoo.com') {
-        const userRef = firestore.collection('users').doc(userId);
-        await userRef.update({ points: newPoints }); // Atualiza os pontos para o novo valor
-        const updatedUsers = users.map((user) => {
-          if (user.id === userId) {
-            return { ...user, points: newPoints }; // Atualiza o valor do usuário com os pontos editados
+          const { points: userPoints } = userDoc.data();
+          let newPoints = userPoints;
+          if (action === 'add') {
+            newPoints += points;
+          } else if (action === 'remove') {
+            newPoints -= points;
+          } else if (action === 'edit') {
+            newPoints = points;
           }
-          return user;
-        });
-        setUsers(updatedUsers);
-      } else {
-        console.log('Acesso negado. Você não tem permissão para executar esta ação.');
-      }
-    } catch (error) {
-      console.error('Error editing points:', error);
-    }
-  };
-
-  const handleRemovePoints = async (userId) => {
-    try {
-      if (currentUser && currentUser.email === 'jubonfas@tattoo.com') {
-        const userRef = firestore.collection('users').doc(userId);
-        const userDoc = await userRef.get();
-        if (userDoc.exists) {
-          const { points } = userDoc.data();
-          await userRef.update({ points: points - 1 }); // Remove 1 ponto
+          await userRef.update({ points: newPoints });
           const updatedUsers = users.map((user) => {
             if (user.id === userId) {
-              return { ...user, points: points - 1 }; // Atualiza o valor do usuário com 1 ponto removido
+              return { ...user, points: newPoints };
             }
             return user;
           });
@@ -97,15 +55,19 @@ const AdminDashboard = () => {
         console.log('Acesso negado. Você não tem permissão para executar esta ação.');
       }
     } catch (error) {
-      console.error('Error removing points:', error);
+      console.error(`Error ${action === 'add' ? 'adding' : action === 'edit' ? 'editing' : 'removing'} points:`, error);
     }
+  };
+
+  const handleManualPointsChange = (e) => {
+    setManualPoints(parseInt(e.target.value)); // Converte para número inteiro e atualiza o estado
   };
 
   if (!currentUser || currentUser.email !== 'jubonfas@tattoo.com') {
     return (
       <div>
         <p>Acesso negado. Você não tem permissão para acessar esta página.</p>
-        <button onClick={() => window.location.href = '/'}>Voltar</button>
+        <button className='back-button' onClick={() => window.location.href = '/'}>Voltar</button>
       </div>
     );
   }
@@ -121,7 +83,6 @@ const AdminDashboard = () => {
             <th>Phone Number</th>
             <th>Instagram</th>
             <th>Points</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -132,22 +93,22 @@ const AdminDashboard = () => {
               <td>{user.phoneNumber}</td>
               <td>{user.instagram}</td>
               <td>
-                {/* Campo de pontos com função de edição manual */}
                 <input
                   type="number"
                   value={user.points}
-                  onChange={(e) => handleEditPoints(user.id, parseInt(e.target.value))}
+                  onChange={(e) => handlePointsAction(user.id, 'edit', parseInt(e.target.value))}
                 />
               </td>
-              <td className="admin-dashboard-button-container">
-                <button onClick={() => handleAddPoints(user.id)}>Add Points</button>
-                <button onClick={() => handleRemovePoints(user.id)}>Remove Points</button>
-              </td>
+              {/* <td className="admin-dashboard-button-container">
+                <button onClick={() => handlePointsAction(user.id, 'add', manualPoints)}>Add Points</button>
+                <button onClick={() => handlePointsAction(user.id, 'remove', manualPoints)}>Remove Points</button>
+              </td> */}
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={() => window.location.href = '/'}>Voltar</button> {/* Botão para voltar para a Home */}
+
+      <button className='back-button' onClick={() => window.location.href = '/'}>Back</button>
     </div>
   );
 };
