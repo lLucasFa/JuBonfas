@@ -79,7 +79,7 @@ const Home = ({ currentUser }) => {
             </div>
           ) : (
           <div className="login-register-links">
-              <Link className='login-text' to="/login">/</Link>
+              <Link className='login-text' to="/login">login/</Link>
               <Link className='register-text' to="/register">Cadastro</Link>
           </div>
           )}
