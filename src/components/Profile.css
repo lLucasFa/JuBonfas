@@ -57,7 +57,7 @@
 }
 
 .user-info button:hover {
-  background-color: #0056b3; /* Cor de fundo azul mais escura ao passar o mouse */
+  /* background-color: #0056b3; Cor de fundo azul mais escura ao passar o mouse */
 }
 
 /* Estilos para visualização em dispositivos móveis */
