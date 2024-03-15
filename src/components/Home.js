@@ -107,9 +107,6 @@ const Home = ({ currentUser }) => {
               minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
               ex ea commodo consequat
             </p>
-            <Link to="/sobre">
-              <button className="ver-mais-button">Ver Mais</button>
-            </Link>
           </div>
         </div>
 
