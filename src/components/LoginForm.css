@@ -1,146 +1,108 @@
-/* Estilos para o formulário */
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.form-wrapper {
-    background-color: #A16345;
-    padding: 33px 18px 70px 18px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0.375rem;
-    max-width: 26rem;
-    width: 100%;
-}
-
-
-/* Estilos para os campos de entrada */
-.input-field {
-    margin-bottom: 1rem;
-    padding: 0 34px 0 0;
-}
-
-.input-label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 0.375rem;
-    border: 1px solid #d1d5db;
-    font-size: 1rem;
-}
-
-/* Estilos para os botões */
-.button {
-    display: block;
-    width: 100%;
-    margin-top: 1rem;
-    text-align: center;
-}
-
-/* Estilos específicos para o botão de login */
-.login-button {
-    background-color: #3E2918;
-    color: #ffffff;
-    font-weight: 500;
-    border-radius: 0.375rem;
-    padding: 0.75rem 1rem;
-    border: none;
-    cursor: pointer;
-    margin: 35rem 47% 0 0;
-}
-
-/* Estilos específicos para o link "Forgot password?" */
-.forgot-password {
-    font-size: 0.75rem;
-    color: #ffffff;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    text-align: center;
-    margin: 29rem 38% 0 0;
-}
-
-/* Estilos específicos para o botão "Voltar para a Home" */
-.back-button {
-    background-color: #A16345;
-    color: #ffffff;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    margin: 34% 45% 0 0;
-}
-
-/* Estilos para o botão "Voltar para a Home" quando passa o mouse por cima */
-.back-button:hover {
-    background-color: #A16345;
-}
-
-@media screen and (max-width: 768px) {
-    .home-container {
-      padding-left: 15px; /* Adicionado espaço à esquerda */
-      padding-right: 15px; /* Adicionado espaço à direita */
-    }
-
-    .back-button {
-        background-color: #A16345;
-        color: #ffffff;
-        border: none;
-        border-radius: 0.375rem;
-        padding: 0.75rem 1rem;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 1rem;
-        margin: 124% 28% 0 0;
-    
-    }
-
-    .forgot-password {
-        font-size: 0.75rem;
-        color: #ffffff;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        text-align: center;
-        margin: 82% 8% 0 0;
-    }
-
-    .login-button {
-        background-color: #3E2918;
-        color: #ffffff;
-        font-weight: 500;
-        border-radius: 0.375rem;
-        padding: 0.75rem 1rem;
-        border: none;
-        cursor: pointer;
-        margin: 104% 36% 0 0;
-    }
-
-    .button {
-        display: block;
-        width: 100%;
-        margin-top: 1rem;
-        text-align: center;
-    }
-
-    .form-wrapper {
-        background-color: #A16345;
-        padding: 25px 18px 50px 18px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 0.375rem;
-        max-width: 26rem;
-        width: 100%;
-    }
-
-
+/* Estilos para visualização no computador */
+.new-form-container {
+    max-width: 400px;
+    margin: 5rem auto; /* Centraliza o formulário horizontal e verticalmente */
+    background-color: white;
+    padding: 0 23px;
+    position: relative; /* Adicionado para posicionamento absoluto dos botões */
   }
+  
+  .new-form-wrapper {
+    padding: 20px;
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+  }
+  
+  .new-input-field {
+    margin-bottom: 15px;
+  }
+  
+  .new-input-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .new-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .new-forgot-password {
+    margin-top: 23%;
+    margin-right: 2%;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .new-back-button,
+  .new-login-button {
+    width: 16%;
+    padding: 10px;
+    background-color: #A16345;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+  .new-back-button {
+    margin-top: -16%;
+    width: 40%;
+    height: 20%;
+  }
+  
+  .new-login-button {
+    margin-top: 52%;
+    width: 40%;
+    height: 20%;
+  }
+  .new-error-message {
+    margin-top: 15px;
+    color: red;
+  } 
+
+  
+  /* Estilos para visualização em dispositivos móveis */
+  @media only screen and (max-width: 600px) {
+    .new-form-container {
+      max-width: 90%;
+      margin: 4rem auto 0; /* Centraliza o formulário na horizontal */
+      padding: 0 23px;
+    }
+  
+    .new-input {
+      font-size: 14px;
+    }
+    
+    .new-login-button {
+      width: 50%; /* Alterado para ocupar a largura completa do formulário */
+      font-size: 16px;
+      margin-top: 15px;
+      padding: 10px;
+      margin: 15rem 21% 0 0;
+
+    }
+  
+    .new-back-button {
+      font-size: 16px;
+      margin-top: 15px;
+      width: 50%; /* Alterado para ocupar a largura completa do formulário */
+      margin: -4rem 21% 0 0;
+    }
+  
+    .new-forgot-password {
+      font-size: 14px;
+      margin-top: 5px;
+      margin: 6.55rem 8px 0 0;
+    }
+  }
+  

@@ -23,9 +23,21 @@
     margin: 53px 13% 0 0;
   }
   
-  .login-register-links {
-    margin: 0 42% 0 0;
-  }
+
+    .login-register-links {
+      margin: 1px 40% 0 0;
+    }
+
+    .login-register-links a {
+        text-decoration: none; /* Remove o sublinhado padrão dos links */
+        color: #3E2918; /* Cor padrão dos links */
+        font-weight: bold; /* Deixa a fonte em negrito quando o link é hover */
+    }
+    
+    .login-register-links a:hover {
+        color: #3E2918; /* Cor do texto quando o link é hover */
+        font-weight: bold; /* Deixa a fonte em negrito quando o link é hover */
+    }
   
   .user-info {
     margin: 0 0 0 42%;
@@ -55,7 +67,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    margin: 81% 55.4rem 0 0;
+    margin: 83% 55.4rem 0 0;
 
   }
   
@@ -144,7 +156,7 @@
     font-family: 'Open Sans Semibold', sans-serif; /* Define a fonte para Open Sans Semibold */
     color: #3E2918; /* Define a cor do texto */
     padding: 44px;
-    font-weight: 500;
+    font-weight: bold; /* Deixa a fonte em negrito quando o link é hover */
   }
   
   /* Estilos para dispositivos móveis */
@@ -271,11 +283,27 @@
       display: flex;
       margin: 20px 0 0 0;
     }
+
+    .login-register-links {
+      margin-top: 10px;
+    }
+  
+    .login-register-links a {
+        text-decoration: none; /* Remove o sublinhado padrão dos links */
+        color: #3E2918; /* Cor padrão dos links */
+        font-weight: bold; /* Deixa a fonte em negrito quando o link é hover */
+    }
+    
+    .login-register-links a:hover {
+        color: #3E2918; /* Cor do texto quando o link é hover */
+        font-weight: bold; /* Deixa a fonte em negrito quando o link é hover */
+    }
   
     .navbar a {
       text-decoration: none;
       color: #ffffff;
       padding: 10px;
+      font-weight: 100;
     }
   
     /* Estilo para fechar o menu */

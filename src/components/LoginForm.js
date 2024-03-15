@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { auth } from '../firebase';
-import './LoginForm.css'; // Importa o arquivo de estilos CSS
+import './LoginForm.css'; // Importa o novo arquivo de estilos CSS
 
-const LoginForm = ({ onRegister }) => {
+const NewLoginForm = ({ onRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
@@ -46,15 +46,15 @@ const LoginForm = ({ onRegister }) => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleLogin} className="form-wrapper">
-        <div className="input-field">
-          <label className="input-label" htmlFor="email">
+    <div className="new-form-container">
+      <form onSubmit={handleLogin} className="new-form-wrapper">
+        <div className="new-input-field">
+          <label className="new-input-label" htmlFor="new-email">
             Email
           </label>
           <input
-            className="input"
-            id="email"
+            className="new-input"
+            id="new-email"
             type="email"
             placeholder="Email"
             value={email}
@@ -62,16 +62,16 @@ const LoginForm = ({ onRegister }) => {
             required
           />
         </div>
-        <div className="input-field">
-          <label className="input-label" htmlFor="password">
+        <div className="new-input-field">
+          <label className="new-input-label" htmlFor="new-password">
             Password
           </label>
-          <button className="forgot-password" onClick={handleForgotPassword}>
+          <button className="new-forgot-password" onClick={handleForgotPassword}>
             Esqueceu a Senha?
           </button>
           <input
-            className="input"
-            id="password"
+            className="new-input"
+            id="new-password"
             type="password"
             placeholder="Password"
             value={password}
@@ -79,13 +79,11 @@ const LoginForm = ({ onRegister }) => {
             required
           />
         </div>
-        <button className="login-button" type="submit">
-            Sign In
-          </button>
-        <div className="button-container">
-        </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button className="back-button" onClick={handleGoToHome}>
+        <button className="new-login-button" type="submit">
+          Sign In
+        </button>
+        {errorMessage && <p className="new-error-message">{errorMessage}</p>}
+        <button className="new-back-button" onClick={handleGoToHome}>
           Voltar para a Home
         </button>
       </form>
@@ -93,4 +91,4 @@ const LoginForm = ({ onRegister }) => {
   );
 };
 
-export default LoginForm;
+export default NewLoginForm;

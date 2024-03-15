@@ -78,10 +78,10 @@ const Home = ({ currentUser }) => {
               </div>
             </div>
           ) : (
-            <div className="login-register-links">
-              <Link to="/login">Login/ </Link>
-              <Link to="/register">Register</Link>
-            </div>
+          <div className="login-register-links">
+              <Link className='login-text' to="/login">/</Link>
+              <Link className='register-text' to="/register">Cadastro</Link>
+          </div>
           )}
           {/* Botão de logout */}
           {currentUser && (

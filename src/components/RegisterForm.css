@@ -1,67 +1,118 @@
-.back-button-register{
-    background-color: #A16345;
-    color: #ffffff;
+/* registerform.css */
+
+.form-container {
+    max-width: 400px;
+    margin: 5rem auto; /* Centraliza o formulário horizontal e verticalmente */
+    background-color: white;
+    padding: 0 23px;
+    position: relative; /* Adicionado para posicionamento absoluto dos botões */
+  }
+  
+  .form-wrapper {
+    padding: 20px;
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+  }
+  
+  .input-field input {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;    
+  }
+  
+  .button-ver {
+    margin-top: 15px;
+    font-size: 14px;
+    background-color: transparent;
     border: none;
-    border-radius: 0.375rem;
-    padding: 0.75rem 4rem;
-    font-size: 0.875rem;
+    color: gray;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    margin: 36% 45% 0 0;
-}
-
-.register-button-regi {
-    background-color: #3E2918;
-    color: #ffffff;
-    font-weight: 500;
-    border-radius: 0.375rem;
-    padding: 0.75rem 1rem;
-    border: none;
-    cursor: pointer;
-    margin: 37.5rem 47% 0 0;
-}
-
-.button-ver {
-    color: rgb(255, 255, 255);
-    background-color: #3E2918;
-    margin: 24.38rem 45% 0 0;
-}
-
-@media screen and (max-width: 768px) {
-    .home-container {
-      padding-left: 15px; /* Adicionado espaço à esquerda */
-      padding-right: 15px; /* Adicionado espaço à direita */
-    }
-
-    .back-button-register{
-        background-color: #A16345;
-        color: #ffffff;
-        border: none;
-        border-radius: 0.375rem;
-        padding: 0.75rem 4rem;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 1rem;
-        margin: 32rem 28% 0 0;
-    }
-    
-    .register-button-regi {
-        background-color: #3E2918;
-        color: #ffffff;
-        font-weight: 500;
-        border-radius: 0.375rem;
-        padding: 0.75rem 1rem;
-        border: none;
-        cursor: pointer;
-        margin: 28.2rem 38% 0 0;
-    }
-    
-    .button-ver {
-        color: rgb(255, 255, 255);
-        background-color: #3E2918;
-        margin: 15.37rem 14% 0 0;
-    }
+    margin: 67px 38px 0 0;
 
   }
+  
+  .back-button-register,
+  .register-button-regi {
+    width: 40%;
+    padding: 10px;
+    background-color: #A16345;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .back-button-register {
+    margin-top: -16%;
+  }
+  
+  .register-button-regi {
+    margin-top: 70%;
+  }
+  
+  .error-message {
+    margin: -1px 0 0 0;
+    color: red;
+    font-size: 9px;
+  }
+
+  .new-error-message {
+    margin: -8px 0 0 0;
+    color: red;
+    font-size: 9px;
+  }
+  
+  /* Estilos para visualização em dispositivos móveis */
+  @media only screen and (max-width: 600px) {
+    .form-container {
+      max-width: 90%;
+      margin: 4rem auto 0; /* Centraliza o formulário na horizontal */
+      padding: 0 23px;
+    }
+  
+    .input-field input {
+      font-size: 14px;
+      width: 94%;
+    }
+  
+    .register-button-regi {
+      width: 50%; /* Alterado para ocupar a largura completa do formulário */
+      font-size: 16px;
+      margin-top: 15px;
+      margin: 19rem 21% 0 0;
+    }
+  
+    .back-button-register {
+      font-size: 16px;
+      margin-top: 15px;
+      width: 50%; /* Alterado para ocupar a largura completa do formulário */
+      margin: -4rem 21% 0 0;
+    }
+  
+    .button-ver {
+      font-size: 14px;
+      margin-top: 5px;
+      margin: 66px 36px 0 0;
+    }
+
+    .error-message {
+        margin: -6px 0 0 0;
+        color: red;
+        font-size: 8px;
+      }
+
+      .new-error-message {
+        margin: -1px 0 0 0;
+        color: rgb(162, 0, 89);
+        font-size: 9px;
+      }
+  }
+  
