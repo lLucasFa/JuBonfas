@@ -1,0 +1,99 @@
+/* Profile.css */
+
+.profile-container {
+  background-color: #fff; /* Fundo branco */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  text-align: center; /* Alinhamento central */
+  max-width: 400px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-top: 4%;
+}
+
+.profile-container h2 {
+  margin-bottom: 20px; /* Espaçamento inferior */
+  color: #3E2918;
+  
+}
+
+.user-info {
+  margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.user-info1 {
+  background-color: #A16345;
+  padding: 2px 0 1px 0;
+  color: white;
+}
+
+
+
+.user-info input[type="text"] {
+  width: 100%; /* Largura total */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid #ccc; /* Borda cinza */
+  border-radius: 5px; /* Bordas arredondadas */
+  
+}
+
+.user-info1 button {
+  background-color: #A16345;
+  width: 16%; /* Alterado para ocupar a largura completa do formulário */
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 10px;
+  margin: 22.5rem 49rem 0 0;
+}
+
+.new-back-button2 {
+  background-color: #A16345;
+  width: 16%; /* Alterado para ocupar a largura completa do formulário */
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 10px;
+  margin: 1.5rem 49rem 0 0;
+}
+
+.user-info button:hover {
+  background-color: #0056b3; /* Cor de fundo azul mais escura ao passar o mouse */
+}
+
+/* Estilos para visualização em dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  .user-info1 button {
+    background-color: #A16345;
+    width: 50%; /* Alterado para ocupar a largura completa do formulário */
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px;
+    margin: 21.50rem 21% 0 0;
+  }
+
+  .new-back-button2 {
+    font-size: 16px;
+    background-color: #A16345;
+    margin-top: 15px;
+    width: 50%;
+    height: 6%;
+    margin: 1rem 21% 0 0;
+    padding: 0 0 0 0;
+  }
+
+  .user-info1 {
+    background-color: #A16345;
+    padding: 2px 0 1px 0;
+    color: white;
+  }
+
+  .profile-container {
+    background-color: #fff; /* Fundo branco */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alinhamento central */
+    max-width: 400px; /* Largura máxima */
+    margin: 60px 0 0 0;
+  }
+}

@@ -8,6 +8,7 @@ import GalleryPage from './components/GalleryPage';
 import Home from './components/Home';
 import AdminDashboard from './components/AdminDashboard'; // Importe o componente AdminDashboard
 import BudgetPage from './components/BudgetPage'; // Importe o componente BudgetPage
+import Profile from './components/Profile'; // Importe o componente Profile
 import './App.css';
 
 function App() {
@@ -42,8 +43,9 @@ function App() {
           <Route path="/user" element={<UserArea user={currentUser} />} />
           <Route path="/" element={<Home currentUser={currentUser} />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/admindashboard" element={<AdminDashboard />} /> {/* Adicione esta rota para o AdminDashboard */}
-          <Route path="/budget" element={<BudgetPage currentUser={currentUser} />} /> {/* Adicione esta rota para o BudgetPage */}
+          <Route path="/admindashboard" element={<AdminDashboard />} />
+          <Route path="/budget" element={<BudgetPage currentUser={currentUser} />} />
+          <Route path="/profile" element={<Profile currentUser={currentUser} />} /> {/* Adicione esta rota para o Profile */}
         </Routes>
       </div>
     </Router>

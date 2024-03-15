@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth, firestore } from '../firebase';
 import { Link } from 'react-router-dom';
 import './Home.css'; // Importe o arquivo de estilos CSS
@@ -73,17 +73,19 @@ const Home = ({ currentUser }) => {
         <div className="user-info">
           {currentUser ? (
             <div className="user-header">
-              <IoPersonCircleOutline className="avatar" />
+              <Link to="/profile"> {/* Link para a página de perfil */}
+                <IoPersonCircleOutline className="avatar" />
+              </Link>
               <div>
                 <p className="user-name">{userName}</p>
                 <p className="user-points">{userPoints} Pontos</p>
               </div>
             </div>
           ) : (
-          <div className="login-register-links">
+            <div className="login-register-links">
               <Link className='login-text' to="/login">login/</Link>
               <Link className='register-text' to="/register">Cadastro</Link>
-          </div>
+            </div>
           )}
           {/* Botão de logout */}
           {currentUser && (
@@ -92,6 +94,7 @@ const Home = ({ currentUser }) => {
             </button>
           )}
         </div>
+
         {/* Exibição das imagens */}
         <div className="image-container">
           <img className='img1' src={image1} alt="Imagem 1" />
@@ -110,6 +113,7 @@ const Home = ({ currentUser }) => {
             </p>
           </div>
         </div>
+
         {/* Botão de toggle para abrir e fechar o menu */}
         <button onClick={toggleMenu} className="menu-toggle">
           ☰
